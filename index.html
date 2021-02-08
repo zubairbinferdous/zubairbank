@@ -41,7 +41,7 @@
             <div class="col-lg-4">
                 <div class="status color2">
                     <h5>Withdrow</h5>
-                    <h4>$00</h4>
+                    <h4>$ <span id="currentWithdrow">00</span></h4>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -90,16 +90,9 @@
         const diposit = document.getElementById("addDeposit");
         diposit.addEventListener('click', function () {
 
-            // const dipositarea= document.getElementById('dipositAmount').value;
-            // const dipositNumber= parseFloat(dipositarea);
+
 
             const dipositNumber = getInputnumber('dipositAmount');
-
-            // console.log(dipositNumber);
-            // const currentDeposit = document.getElementById("currentDeposit").innerHTML;
-            // const currentDepositNumber = parseFloat(currentDeposit);
-            // const totalNumber = dipositNumber+currentDepositNumber;
-            // document.getElementById("currentDeposit").innerText = totalNumber;
 
             updateSpan( 'currentDeposit', dipositNumber);
             // current balance
@@ -109,15 +102,16 @@
             
         })
 
-
-
         // withdrow button event
-
 
         const withdrowBtn = document.getElementById('addWithdrow');
         withdrowBtn.addEventListener('click' , function () {
 
             const WithdrowNumber = getInputnumber("WithdrowAmount");
+            updateSpan( 'currentWithdrow', WithdrowNumber);
+            updateSpan( 'currentBalance', -1* WithdrowNumber);
+
+            document.getElementById('WithdrowAmount').value = "";
 
         })
 
@@ -146,11 +140,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
+
 </body>
 
 </html>
